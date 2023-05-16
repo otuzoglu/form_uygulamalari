@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -41,33 +43,8 @@ class _YeniGorevState extends State<YeniGorev> {
     } else {
       _baslik = _baslikKontrolcusu.text;
     }
-    Icon? simgem;
-    switch (_simge) {
-      case "Okul":
-        simgem = const Icon(
-          Icons.school,
-          color: Colors.red,
-          size: 32,
-        );
-        break;
-      case "Ev":
-        simgem = const Icon(
-          Icons.home,
-          color: Colors.green,
-          size: 32,
-        );
-        break;
-      case "Eğlence":
-        simgem = const Icon(
-          Icons.videogame_asset,
-          color: Colors.blueAccent,
-          size: 32,
-        );
-        break;
-      default:
-    }
 
-    widget._gorevEkleyici(baslik: _baslik, tarih: _tarih, simge: simgem);
+    widget._gorevEkleyici(baslik: _baslik, tarih: _tarih, simge: _simge);
     Navigator.of(context).pop();
   }
 

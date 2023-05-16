@@ -1,5 +1,7 @@
+// ignore_for_file: use_key_in_widget_constructors, must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:form_uygulamalari/modals/gorevmodeli.dart';
+import '../modals/gorevmodeli.dart';
 import 'package:intl/intl.dart';
 
 class GorevListesi extends StatelessWidget {
@@ -22,7 +24,7 @@ class GorevListesi extends StatelessWidget {
                 elevation: 5,
                 margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                 child: ListTile(
-                  leading: e.simge,
+                  leading: simge[e.simge],
                   title: Text(e.baslik),
                   subtitle: Text(DateFormat.yMd().format(e.tarih)),
                   trailing: TextButton(
@@ -30,7 +32,9 @@ class GorevListesi extends StatelessWidget {
                       Icons.check_box_outlined,
                       size: 28,
                     ),
-                    onPressed: () => _gorevSil(e.id),
+                    onPressed: () {
+                      _gorevSil(e.id);
+                    },
                   ),
                 ),
               ));

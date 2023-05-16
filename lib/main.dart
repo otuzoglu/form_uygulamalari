@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'modals/gorevmodeli.dart';
@@ -11,7 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true),
       title: 'Material App',
       home: Gorevler(),
     );
@@ -32,7 +36,7 @@ class _GorevlerState extends State<Gorevler> {
   void _gorevEkle({
     required String baslik,
     required DateTime tarih,
-    required Icon simge,
+    required String simge,
   }) {
     setState(() {
       _gorevler.add(
@@ -47,9 +51,10 @@ class _GorevlerState extends State<Gorevler> {
     _gorevSayisi++;
   }
 
-  void _gorevSil(num _gorevId) {
+  void _gorevSil(int gorevId) {
     setState(() {
-      _gorevler.remove((_gorev) => _gorev.id == _gorevId);
+      //_gorevler.remove(2);
+      _gorevler.removeWhere((gorev) => gorev.id == gorevId);
     });
   }
 
